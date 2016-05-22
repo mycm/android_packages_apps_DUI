@@ -59,6 +59,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 
+import cyanogenmod.providers.CMSettings;
+
 public class NavigationController implements PackageChangedListener {
     private static final String TAG = NavigationController.class.getSimpleName();
 
@@ -186,8 +188,8 @@ public class NavigationController implements PackageChangedListener {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.NAVIGATION_BAR_VISIBLE), false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.NAVBAR_LEFT_IN_LANDSCAPE), false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(CMSettings.System.getUriFor(
+                    CMSettings.System.NAVBAR_LEFT_IN_LANDSCAPE), false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -198,10 +200,10 @@ public class NavigationController implements PackageChangedListener {
             final ContentResolver resolver = mContext.getContentResolver();
             final boolean isBarShowingNow = mBar.getNavigationBarView() != null; // sanity checks
 
-            if (uri.equals(Settings.System.getUriFor(Settings.System.NAVBAR_LEFT_IN_LANDSCAPE))
+            if (uri.equals(CMSettings.System.getUriFor(CMSettings.System.NAVBAR_LEFT_IN_LANDSCAPE))
                     && isBarShowingNow) {
-                boolean navLeftInLandscape = Settings.System.getIntForUser(resolver,
-                        Settings.System.NAVBAR_LEFT_IN_LANDSCAPE, 0, UserHandle.USER_CURRENT) == 1;
+                boolean navLeftInLandscape = CMSettings.System.getIntForUser(resolver,
+                        CMSettings.System.NAVBAR_LEFT_IN_LANDSCAPE, 0, UserHandle.USER_CURRENT) == 1;
                 mBar.getNavigationBarView().setLeftInLandscape(navLeftInLandscape);
             } else if (uri.equals(Settings.Secure
                     .getUriFor(Settings.Secure.NAVIGATION_BAR_VISIBLE))) {
