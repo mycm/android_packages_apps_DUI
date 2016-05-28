@@ -200,7 +200,7 @@ public class NavigationController implements PackageChangedListener {
             final ContentResolver resolver = mContext.getContentResolver();
             final boolean isBarShowingNow = mBar.getNavigationBarView() != null; // sanity checks
 
-            if (uri.equals(Settings.System.getUriFor(CMSettings.System.NAVBAR_LEFT_IN_LANDSCAPE))
+            if (uri.equals(CMSettings.System.getUriFor(CMSettings.System.NAVBAR_LEFT_IN_LANDSCAPE))
                     && isBarShowingNow) {
                 boolean navLeftInLandscape = CMSettings.System.getIntForUser(resolver,
                         CMSettings.System.NAVBAR_LEFT_IN_LANDSCAPE, 0, UserHandle.USER_CURRENT) == 1;
