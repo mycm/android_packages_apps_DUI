@@ -48,6 +48,7 @@
     <string name="label_action_ime_up">Input method cursor up</string>
     <string name="label_action_volume_panel">Volume panel</string>
     <string name="label_action_clear_notifications">Clear notifications</string>
+    <string name="label_action_editing_smartbar">Smartbar editor</string>
 
     <!-- Smartbar -->
     <string name="label_smartbar_actions">Actions</string>
@@ -66,5 +67,6 @@
     <string name="smartbar_editor_toast_starting">Starting navigation editor</string>
     <string name="smartbar_editor_toast_stopping">Stopping navigation editor</string>
     <string name="smartbar_editor_toast_unavailable">Navigation editor unavailable</string>
+    <string name="edit_mode">Edit Mode</string>
 
 </resources>
